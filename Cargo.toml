@@ -3,6 +3,14 @@ name = "bell"
 version = "0.1.0"
 edition = "2021"
 
+license-file = "LICENSE"
+description = "CLI meditation timer"
+homepage = "https://github.com/jaredforth/bell"
+repository = "https://github.com/jaredforth/bell.git"
+keywords = ["cli", "meditation", "timer", "command line"]
+categories = ["command-line-utilities"]
+documentation = "https://docs.rs/bell/"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
