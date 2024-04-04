@@ -6,8 +6,7 @@ use std::sync::mpsc::channel;
 use clap::Parser;
 
 use rodio::{source::Source, Decoder, OutputStream};
-use std::fs::File;
-use std::io::BufReader;
+use std::io::Cursor;
 
 /// Simple CLI meditation timer
 #[derive(Parser, Debug)]
@@ -19,14 +18,14 @@ struct Args {
 }
 
 const AUDIO_LENGTH_SECONDS: i64 = 26;
-const AUDIO_FILE_PATH: &str = "audio/bell.ogg";
 
 fn main() {
     let args = Args::parse();
     let timer = timer::Timer::new();
     let (tx, rx) = channel();
 
-    let delay = chrono::Duration::minutes(args.minutes) - chrono::Duration::seconds(AUDIO_LENGTH_SECONDS);
+    let delay =
+        chrono::Duration::minutes(args.minutes) - chrono::Duration::seconds(AUDIO_LENGTH_SECONDS);
 
     invite();
 
@@ -36,16 +35,14 @@ fn main() {
     });
 
     rx.recv().unwrap();
-    println!(
-        "{0} minute meditation complete 🧘‍♂️",
-        args.minutes
-    );
+    println!("{0} minute meditation complete 🧘‍♂️", args.minutes);
 }
 
 fn invite() {
+    let bytes = include_bytes!("../audio/bell.ogg");
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
-    let file = BufReader::new(File::open(AUDIO_FILE_PATH).unwrap());
-    let source = Decoder::new(file).unwrap(); 
+    let cursor = Cursor::new(&bytes[..]);
+    let source = Decoder::new(cursor).unwrap();
     let _ = stream_handle.play_raw(source.convert_samples());
 
     std::thread::sleep(std::time::Duration::from_secs(AUDIO_LENGTH_SECONDS as u64));
