@@ -7,4 +7,6 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.37"
+clap = { version = "4.5.4", features = ["derive"] }
+rodio = "0.17.3"
 timer = "0.2.0"
