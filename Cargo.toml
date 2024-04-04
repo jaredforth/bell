@@ -7,7 +7,7 @@ license-file = "LICENSE"
 description = "CLI meditation timer"
 homepage = "https://github.com/jaredforth/bell"
 repository = "https://github.com/jaredforth/bell.git"
-keywords = ["cli", "meditation", "timer", "command line"]
+keywords = ["cli", "meditation", "timer", "command-line"]
 categories = ["command-line-utilities"]
 documentation = "https://docs.rs/bell/"
 
