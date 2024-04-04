@@ -7,6 +7,12 @@
 
 CLI meditation timer
 
+## installation
+
+```
+cargo install bell
+```
+
 ## usage
 
 ```
