@@ -2,4 +2,10 @@
 
 # bell
 
-CLI meditation timer 
+CLI meditation timer
+
+## usage
+
+```
+Usage: bell --minutes <MINUTES>
+```
