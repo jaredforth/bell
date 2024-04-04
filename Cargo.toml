@@ -3,7 +3,7 @@ name = "bell"
 version = "0.1.0"
 edition = "2021"
 
-license = "AGPL-3.0 license"
+license = "	AGPL-3.0-or-later"
 description = "CLI meditation timer"
 homepage = "https://github.com/jaredforth/bell"
 repository = "https://github.com/jaredforth/bell.git"
